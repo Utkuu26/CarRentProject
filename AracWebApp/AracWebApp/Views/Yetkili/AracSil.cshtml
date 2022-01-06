@@ -1,0 +1,93 @@
+﻿@model AracWebApp.Models.tblArac
+
+@{
+    ViewBag.Title = "AracSil";
+}
+
+<h2>Araç Silme</h2>
+
+<h5 class="bg-danger p-2">Aracı silmek istediğinizden emin misiniz?</h5>
+<hr />
+<div class="container bg-dark">
+    <hr />
+    <dl class="dl-horizontal">
+        <dt class="mt-3 py-1">
+            @Html.DisplayNameFor(model => model.airbag)
+        </dt>
+
+        <dd class="mt-2 py-1">
+            @Html.DisplayFor(model => model.airbag)
+        </dd>
+
+        <dt class="mt-3 py-1 bg-secondary">
+            @Html.DisplayNameFor(model => model.aciklama)
+        </dt>
+
+        <dd class="mt-2 py-1 bg-secondary">
+            @Html.DisplayFor(model => model.aciklama)
+        </dd>
+
+        <dt class="mt-3 py-1">
+            @Html.DisplayNameFor(model => model.gunlukFiyat)
+        </dt>
+
+        <dd class="mt-2 py-1">
+            @Html.DisplayFor(model => model.gunlukFiyat)
+        </dd>
+
+        <dt class="mt-3 py-1 bg-secondary">
+            @Html.DisplayNameFor(model => model.koltukSayisi)
+        </dt>
+
+        <dd class="mt-2 py-1 bg-secondary">
+            @Html.DisplayFor(model => model.koltukSayisi)
+        </dd>
+
+        <dt class="mt-3 py-1">
+            @Html.DisplayNameFor(model => model.bagajHacmi)
+        </dt>
+
+        <dd class="mt-2 py-1">
+            @Html.DisplayFor(model => model.bagajHacmi)
+        </dd>
+
+        <dt class="mt-3 py-1 bg-secondary">
+            @Html.DisplayNameFor(model => model.km)
+        </dt>
+
+        <dd class="mt-2 py-1 bg-secondary">
+            @Html.DisplayFor(model => model.km)
+        </dd>
+
+        <dt class="mt-3 py-1">
+            @Html.DisplayNameFor(model => model.resim)
+        </dt>
+
+        <dd class="mt-2 py-1">
+            @Html.DisplayFor(model => model.resim)
+        </dd>
+
+        <dt class="mt-3 py-1 bg-secondary">
+            @Html.DisplayNameFor(model => model.tblModel.modelAd)
+        </dt>
+
+        <dd class="mt-2 py-1 bg-secondary">
+            @Html.DisplayFor(model => model.tblModel.modelAd)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <button class="btn btn-info mb-3">
+                <i class="fa fa-long-arrow-left" aria-hidden="true"></i> @Html.ActionLink("Listeye Dön", "Index")
+            </button>
+            <button class="btn btn-danger mb-3">
+                @Html.ActionLink("Sil", "AracSil", new { id = Model.aracId }) <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+            </button>
+        </div>
+    }
+</div>

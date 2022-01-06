@@ -1,0 +1,344 @@
+CREATE DATABASE [dbArac]
+GO
+/****** Object:  Table [dbo].[tblArac]    Script Date: 2.01.2022 14:38:45 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tblArac](
+	[aracId] [int] IDENTITY(1,1) NOT NULL,
+	[modelId] [int] NULL,
+	[airbag] [bit] NULL,
+	[aciklama] [nvarchar](50) NULL,
+	[gunlukFiyat] [money] NULL,
+	[koltukSayisi] [int] NULL,
+	[bagajHacmi] [float] NULL,
+	[km] [int] NULL,
+	[resim] [nvarchar](50) NULL,
+ CONSTRAINT [PK_tblArac] PRIMARY KEY CLUSTERED 
+(
+	[aracId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tblKiralama]    Script Date: 2.01.2022 14:38:45 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tblKiralama](
+	[kiralamaId] [int] IDENTITY(1,1) NOT NULL,
+	[kiralamaDurum] [bit] NULL,
+	[aracId] [int] NULL,
+	[musteriId] [int] NULL,
+	[aciklama] [nvarchar](50) NULL,
+	[gunSayisi] [int] NULL,
+	[ucret] [money] NULL,
+	[tarih] [date] NULL,
+ CONSTRAINT [PK_tblKiralama] PRIMARY KEY CLUSTERED 
+(
+	[kiralamaId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tblMarka]    Script Date: 2.01.2022 14:38:45 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tblMarka](
+	[markaId] [int] IDENTITY(1,1) NOT NULL,
+	[markaAd] [nvarchar](50) NULL,
+ CONSTRAINT [PK_tblMarka] PRIMARY KEY CLUSTERED 
+(
+	[markaId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tblModel]    Script Date: 2.01.2022 14:38:45 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tblModel](
+	[modelId] [int] IDENTITY(1,1) NOT NULL,
+	[modelAd] [nvarchar](50) NULL,
+	[markaId] [int] NULL,
+ CONSTRAINT [PK_tblModel] PRIMARY KEY CLUSTERED 
+(
+	[modelId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tblMusteri]    Script Date: 2.01.2022 14:38:45 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tblMusteri](
+	[musteriId] [int] IDENTITY(1,1) NOT NULL,
+	[musteriAd] [nvarchar](50) NULL,
+	[musteriSoyad] [nvarchar](50) NULL,
+	[musteriMail] [nvarchar](50) NULL,
+	[musteriSifre] [nvarchar](50) NULL,
+	[musteriYas] [int] NULL,
+ CONSTRAINT [PK_tblMusteri] PRIMARY KEY CLUSTERED 
+(
+	[musteriId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[tblArac] ON 
+GO
+INSERT [dbo].[tblArac] ([aracId], [modelId], [airbag], [aciklama], [gunlukFiyat], [koltukSayisi], [bagajHacmi], [km], [resim]) VALUES (1, 1, 1, N'Guzel', 100.0000, 5, 480, 120000, N'images/audi_a4.jpg')
+GO
+INSERT [dbo].[tblArac] ([aracId], [modelId], [airbag], [aciklama], [gunlukFiyat], [koltukSayisi], [bagajHacmi], [km], [resim]) VALUES (2, 2, 1, N'Guzel', 120.0000, 5, 500, 100000, N'images/audi_a5.jpg')
+GO
+INSERT [dbo].[tblArac] ([aracId], [modelId], [airbag], [aciklama], [gunlukFiyat], [koltukSayisi], [bagajHacmi], [km], [resim]) VALUES (3, 3, 1, N'Guzel', 100.0000, 5, 300, 100000, N'images/citroen_c-elysee.jpg')
+GO
+INSERT [dbo].[tblArac] ([aracId], [modelId], [airbag], [aciklama], [gunlukFiyat], [koltukSayisi], [bagajHacmi], [km], [resim]) VALUES (4, 4, 1, N'Guzel', 40.0000, 5, 300, 100000, N'images/honda_civic.jfif')
+GO
+INSERT [dbo].[tblArac] ([aracId], [modelId], [airbag], [aciklama], [gunlukFiyat], [koltukSayisi], [bagajHacmi], [km], [resim]) VALUES (5, 5, 1, N'Guzel', 56.0000, 5, 300, 100000, N'images/ford_focus.jpg')
+GO
+INSERT [dbo].[tblArac] ([aracId], [modelId], [airbag], [aciklama], [gunlukFiyat], [koltukSayisi], [bagajHacmi], [km], [resim]) VALUES (6, 6, 1, N'Guzel', 78.0000, 5, 300, 100000, N'images/ford_fiesta.jpg')
+GO
+INSERT [dbo].[tblArac] ([aracId], [modelId], [airbag], [aciklama], [gunlukFiyat], [koltukSayisi], [bagajHacmi], [km], [resim]) VALUES (7, 7, 1, N'Guzel', 98.0000, 5, 300, 100000, N'images/lamborghini_aventador.jpg')
+GO
+SET IDENTITY_INSERT [dbo].[tblArac] OFF
+GO
+SET IDENTITY_INSERT [dbo].[tblKiralama] ON 
+GO
+INSERT [dbo].[tblKiralama] ([kiralamaId], [kiralamaDurum], [aracId], [musteriId], [aciklama], [gunSayisi], [ucret], [tarih]) VALUES (3, 1, 1, 1, N'a', 2, 0.0000, CAST(N'2020-12-12' AS Date))
+GO
+SET IDENTITY_INSERT [dbo].[tblKiralama] OFF
+GO
+SET IDENTITY_INSERT [dbo].[tblMarka] ON 
+GO
+INSERT [dbo].[tblMarka] ([markaId], [markaAd]) VALUES (1, N'Audi')
+GO
+INSERT [dbo].[tblMarka] ([markaId], [markaAd]) VALUES (2, N'Citroen')
+GO
+INSERT [dbo].[tblMarka] ([markaId], [markaAd]) VALUES (3, N'Honda')
+GO
+INSERT [dbo].[tblMarka] ([markaId], [markaAd]) VALUES (4, N'Ford')
+GO
+INSERT [dbo].[tblMarka] ([markaId], [markaAd]) VALUES (5, N'Lamborghini')
+GO
+SET IDENTITY_INSERT [dbo].[tblMarka] OFF
+GO
+SET IDENTITY_INSERT [dbo].[tblModel] ON 
+GO
+INSERT [dbo].[tblModel] ([modelId], [modelAd], [markaId]) VALUES (1, N'A4', 1)
+GO
+INSERT [dbo].[tblModel] ([modelId], [modelAd], [markaId]) VALUES (2, N'A5', 1)
+GO
+INSERT [dbo].[tblModel] ([modelId], [modelAd], [markaId]) VALUES (3, N'C-Elysee', 2)
+GO
+INSERT [dbo].[tblModel] ([modelId], [modelAd], [markaId]) VALUES (4, N'Civic', 3)
+GO
+INSERT [dbo].[tblModel] ([modelId], [modelAd], [markaId]) VALUES (5, N'Focus', 4)
+GO
+INSERT [dbo].[tblModel] ([modelId], [modelAd], [markaId]) VALUES (6, N'Fiesta', 4)
+GO
+INSERT [dbo].[tblModel] ([modelId], [modelAd], [markaId]) VALUES (7, N'Aventador', 5)
+GO
+SET IDENTITY_INSERT [dbo].[tblModel] OFF
+GO
+SET IDENTITY_INSERT [dbo].[tblMusteri] ON 
+GO
+INSERT [dbo].[tblMusteri] ([musteriId], [musteriAd], [musteriSoyad], [musteriMail], [musteriSifre], [musteriYas]) VALUES (1, N'berfin', N'ozdemir', N'ber@gmail.com', N'Berfin.0', 21)
+GO
+SET IDENTITY_INSERT [dbo].[tblMusteri] OFF
+GO
+ALTER TABLE [dbo].[tblArac]  WITH CHECK ADD  CONSTRAINT [FK_tblArac_tblModel] FOREIGN KEY([modelId])
+REFERENCES [dbo].[tblModel] ([modelId])
+GO
+ALTER TABLE [dbo].[tblArac] CHECK CONSTRAINT [FK_tblArac_tblModel]
+GO
+ALTER TABLE [dbo].[tblKiralama]  WITH CHECK ADD  CONSTRAINT [FK_tblKiralama_tblArac] FOREIGN KEY([aracId])
+REFERENCES [dbo].[tblArac] ([aracId])
+GO
+ALTER TABLE [dbo].[tblKiralama] CHECK CONSTRAINT [FK_tblKiralama_tblArac]
+GO
+ALTER TABLE [dbo].[tblKiralama]  WITH CHECK ADD  CONSTRAINT [FK_tblKiralama_tblMusteri] FOREIGN KEY([musteriId])
+REFERENCES [dbo].[tblMusteri] ([musteriId])
+GO
+ALTER TABLE [dbo].[tblKiralama] CHECK CONSTRAINT [FK_tblKiralama_tblMusteri]
+GO
+ALTER TABLE [dbo].[tblModel]  WITH CHECK ADD  CONSTRAINT [FK_tblModel_tblMarka] FOREIGN KEY([markaId])
+REFERENCES [dbo].[tblMarka] ([markaId])
+GO
+ALTER TABLE [dbo].[tblModel] CHECK CONSTRAINT [FK_tblModel_tblMarka]
+GO
+USE [dbArac]
+GO
+/****** Object:  Table [dbo].[tblArac]    Script Date: 2.01.2022 14:38:45 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tblArac](
+	[aracId] [int] IDENTITY(1,1) NOT NULL,
+	[modelId] [int] NULL,
+	[airbag] [bit] NULL,
+	[aciklama] [nvarchar](50) NULL,
+	[gunlukFiyat] [money] NULL,
+	[koltukSayisi] [int] NULL,
+	[bagajHacmi] [float] NULL,
+	[km] [int] NULL,
+	[resim] [nvarchar](50) NULL,
+ CONSTRAINT [PK_tblArac] PRIMARY KEY CLUSTERED 
+(
+	[aracId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tblKiralama]    Script Date: 2.01.2022 14:38:45 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tblKiralama](
+	[kiralamaId] [int] IDENTITY(1,1) NOT NULL,
+	[kiralamaDurum] [bit] NULL,
+	[aracId] [int] NULL,
+	[musteriId] [int] NULL,
+	[aciklama] [nvarchar](50) NULL,
+	[gunSayisi] [int] NULL,
+	[ucret] [money] NULL,
+	[tarih] [date] NULL,
+ CONSTRAINT [PK_tblKiralama] PRIMARY KEY CLUSTERED 
+(
+	[kiralamaId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tblMarka]    Script Date: 2.01.2022 14:38:45 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tblMarka](
+	[markaId] [int] IDENTITY(1,1) NOT NULL,
+	[markaAd] [nvarchar](50) NULL,
+ CONSTRAINT [PK_tblMarka] PRIMARY KEY CLUSTERED 
+(
+	[markaId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tblModel]    Script Date: 2.01.2022 14:38:45 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tblModel](
+	[modelId] [int] IDENTITY(1,1) NOT NULL,
+	[modelAd] [nvarchar](50) NULL,
+	[markaId] [int] NULL,
+ CONSTRAINT [PK_tblModel] PRIMARY KEY CLUSTERED 
+(
+	[modelId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tblMusteri]    Script Date: 2.01.2022 14:38:45 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tblMusteri](
+	[musteriId] [int] IDENTITY(1,1) NOT NULL,
+	[musteriAd] [nvarchar](50) NULL,
+	[musteriSoyad] [nvarchar](50) NULL,
+	[musteriMail] [nvarchar](50) NULL,
+	[musteriSifre] [nvarchar](50) NULL,
+	[musteriYas] [int] NULL,
+ CONSTRAINT [PK_tblMusteri] PRIMARY KEY CLUSTERED 
+(
+	[musteriId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[tblArac] ON 
+GO
+INSERT [dbo].[tblArac] ([aracId], [modelId], [airbag], [aciklama], [gunlukFiyat], [koltukSayisi], [bagajHacmi], [km], [resim]) VALUES (1, 1, 1, N'Guzel', 100.0000, 5, 480, 120000, N'images/audi_a4.jpg')
+GO
+INSERT [dbo].[tblArac] ([aracId], [modelId], [airbag], [aciklama], [gunlukFiyat], [koltukSayisi], [bagajHacmi], [km], [resim]) VALUES (2, 2, 1, N'Guzel', 120.0000, 5, 500, 100000, N'images/audi_a5.jpg')
+GO
+INSERT [dbo].[tblArac] ([aracId], [modelId], [airbag], [aciklama], [gunlukFiyat], [koltukSayisi], [bagajHacmi], [km], [resim]) VALUES (3, 3, 1, N'Guzel', 100.0000, 5, 300, 100000, N'images/citroen_c-elysee.jpg')
+GO
+INSERT [dbo].[tblArac] ([aracId], [modelId], [airbag], [aciklama], [gunlukFiyat], [koltukSayisi], [bagajHacmi], [km], [resim]) VALUES (4, 4, 1, N'Guzel', 40.0000, 5, 300, 100000, N'images/honda_civic.jfif')
+GO
+INSERT [dbo].[tblArac] ([aracId], [modelId], [airbag], [aciklama], [gunlukFiyat], [koltukSayisi], [bagajHacmi], [km], [resim]) VALUES (5, 5, 1, N'Guzel', 56.0000, 5, 300, 100000, N'images/ford_focus.jpg')
+GO
+INSERT [dbo].[tblArac] ([aracId], [modelId], [airbag], [aciklama], [gunlukFiyat], [koltukSayisi], [bagajHacmi], [km], [resim]) VALUES (6, 6, 1, N'Guzel', 78.0000, 5, 300, 100000, N'images/ford_fiesta.jpg')
+GO
+INSERT [dbo].[tblArac] ([aracId], [modelId], [airbag], [aciklama], [gunlukFiyat], [koltukSayisi], [bagajHacmi], [km], [resim]) VALUES (7, 7, 1, N'Guzel', 98.0000, 5, 300, 100000, N'images/lamborghini_aventador.jpg')
+GO
+SET IDENTITY_INSERT [dbo].[tblArac] OFF
+GO
+SET IDENTITY_INSERT [dbo].[tblKiralama] ON 
+GO
+INSERT [dbo].[tblKiralama] ([kiralamaId], [kiralamaDurum], [aracId], [musteriId], [aciklama], [gunSayisi], [ucret], [tarih]) VALUES (3, 1, 1, 1, N'a', 2, 0.0000, CAST(N'2020-12-12' AS Date))
+GO
+SET IDENTITY_INSERT [dbo].[tblKiralama] OFF
+GO
+SET IDENTITY_INSERT [dbo].[tblMarka] ON 
+GO
+INSERT [dbo].[tblMarka] ([markaId], [markaAd]) VALUES (1, N'Audi')
+GO
+INSERT [dbo].[tblMarka] ([markaId], [markaAd]) VALUES (2, N'Citroen')
+GO
+INSERT [dbo].[tblMarka] ([markaId], [markaAd]) VALUES (3, N'Honda')
+GO
+INSERT [dbo].[tblMarka] ([markaId], [markaAd]) VALUES (4, N'Ford')
+GO
+INSERT [dbo].[tblMarka] ([markaId], [markaAd]) VALUES (5, N'Lamborghini')
+GO
+SET IDENTITY_INSERT [dbo].[tblMarka] OFF
+GO
+SET IDENTITY_INSERT [dbo].[tblModel] ON 
+GO
+INSERT [dbo].[tblModel] ([modelId], [modelAd], [markaId]) VALUES (1, N'A4', 1)
+GO
+INSERT [dbo].[tblModel] ([modelId], [modelAd], [markaId]) VALUES (2, N'A5', 1)
+GO
+INSERT [dbo].[tblModel] ([modelId], [modelAd], [markaId]) VALUES (3, N'C-Elysee', 2)
+GO
+INSERT [dbo].[tblModel] ([modelId], [modelAd], [markaId]) VALUES (4, N'Civic', 3)
+GO
+INSERT [dbo].[tblModel] ([modelId], [modelAd], [markaId]) VALUES (5, N'Focus', 4)
+GO
+INSERT [dbo].[tblModel] ([modelId], [modelAd], [markaId]) VALUES (6, N'Fiesta', 4)
+GO
+INSERT [dbo].[tblModel] ([modelId], [modelAd], [markaId]) VALUES (7, N'Aventador', 5)
+GO
+SET IDENTITY_INSERT [dbo].[tblModel] OFF
+GO
+SET IDENTITY_INSERT [dbo].[tblMusteri] ON 
+GO
+INSERT [dbo].[tblMusteri] ([musteriId], [musteriAd], [musteriSoyad], [musteriMail], [musteriSifre], [musteriYas]) VALUES (1, N'berfin', N'ozdemir', N'ber@gmail.com', N'Berfin.0', 21)
+GO
+SET IDENTITY_INSERT [dbo].[tblMusteri] OFF
+GO
+ALTER TABLE [dbo].[tblArac]  WITH CHECK ADD  CONSTRAINT [FK_tblArac_tblModel] FOREIGN KEY([modelId])
+REFERENCES [dbo].[tblModel] ([modelId])
+GO
+ALTER TABLE [dbo].[tblArac] CHECK CONSTRAINT [FK_tblArac_tblModel]
+GO
+ALTER TABLE [dbo].[tblKiralama]  WITH CHECK ADD  CONSTRAINT [FK_tblKiralama_tblArac] FOREIGN KEY([aracId])
+REFERENCES [dbo].[tblArac] ([aracId])
+GO
+ALTER TABLE [dbo].[tblKiralama] CHECK CONSTRAINT [FK_tblKiralama_tblArac]
+GO
+ALTER TABLE [dbo].[tblKiralama]  WITH CHECK ADD  CONSTRAINT [FK_tblKiralama_tblMusteri] FOREIGN KEY([musteriId])
+REFERENCES [dbo].[tblMusteri] ([musteriId])
+GO
+ALTER TABLE [dbo].[tblKiralama] CHECK CONSTRAINT [FK_tblKiralama_tblMusteri]
+GO
+ALTER TABLE [dbo].[tblModel]  WITH CHECK ADD  CONSTRAINT [FK_tblModel_tblMarka] FOREIGN KEY([markaId])
+REFERENCES [dbo].[tblMarka] ([markaId])
+GO
+ALTER TABLE [dbo].[tblModel] CHECK CONSTRAINT [FK_tblModel_tblMarka]
+GO

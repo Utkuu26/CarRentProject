@@ -1,0 +1,69 @@
+﻿@model IEnumerable<AracWebApp.Models.tblKiralama>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.kiralamaDurum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.aciklama)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gunSayisi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ucret)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tarih)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblArac.aciklama)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblMusteri.musteriAd)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.kiralamaDurum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.aciklama)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gunSayisi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ucret)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tarih)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblArac.aciklama)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblMusteri.musteriAd)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.kiralamaId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.kiralamaId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.kiralamaId })
+        </td>
+    </tr>
+}
+
+</table>

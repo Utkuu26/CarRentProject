@@ -1,0 +1,75 @@
+﻿@model IEnumerable<AracWebApp.Models.tblArac>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.airbag)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.aciklama)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gunlukFiyat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.koltukSayisi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bagajHacmi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.km)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.resim)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblModel.modelAd)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.airbag)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.aciklama)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gunlukFiyat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.koltukSayisi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bagajHacmi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.km)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.resim)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblModel.modelAd)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.aracId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.aracId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.aracId })
+        </td>
+    </tr>
+}
+
+</table>

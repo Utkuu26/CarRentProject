@@ -1,0 +1,39 @@
+﻿@model IEnumerable<AracWebApp.Models.tblArac>
+@{
+    ViewBag.Title = "Home Page";
+}
+<link href="~/Content/Site.css" rel="stylesheet" />
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <br>
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4">
+                    <div class="thumbnail mb-3 mt-5 bg-dark">
+                        <div class="card bg-success">
+                            <div class="card-body img-thumbnail mb-3">
+                                <a class="" href="~/Home/Details"><img src="~/@item.resim" class="rounded img-fluid img-thumbnail bg-success mb-3" alt="..."></a>
+                                <div class="caption">
+                                    <p class="justify-content-center d-flex"><strong>ARAÇ - @item.aciklama</strong></p>
+                                    <p>@item.tblModel.tblMarka.markaAd - @item.tblModel.modelAd</p>
+                                    <p>
+                                        <button class="btn-info">@item.gunlukFiyat <i class="fa fa-money" aria-hidden="true"></i></button>
+                                        <button class="btn-success pull-right">@Html.ActionLink("Detay", "Detay", new { id = item.aracId }) </button>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+</body>

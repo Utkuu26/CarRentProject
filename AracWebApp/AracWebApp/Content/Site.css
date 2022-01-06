@@ -1,0 +1,85 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    font-size: 16px !important;
+    background: #000000ea;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.navbar-right {
+    padding: 8px;
+}
+
+
+.fa-user {
+    color: white;
+}
+
+
+.rounded {
+    min-height: 290px;
+}
+
+.navbar {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 1;
+    color: white;
+}
+
+a {
+    color: white;
+}
+
+#loginForm {
+    color: white;
+}
+
+h2 {
+    color: white;
+}
+
+.form-horizontal {
+    color: white;
+}
+
+#musteriDetay {
+    color: white !important;
+}
+
+dt {
+    color: white !important;
+}
+
+dd {
+    color: white !important;
+}
+
+.navbar-brand {
+    margin-left: 5px;
+    padding: 5px;
+}
+a{
+    text-decoration: none;
+}

@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbAracModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblArac">
+    <Key>
+      <PropertyRef Name="aracId" />
+    </Key>
+    <Property Name="aracId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="modelId" Type="Int32" />
+    <Property Name="airbag" Type="Boolean" />
+    <Property Name="aciklama" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="gunlukFiyat" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="koltukSayisi" Type="Int32" />
+    <Property Name="bagajHacmi" Type="Double" />
+    <Property Name="km" Type="Int32" />
+    <Property Name="resim" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblModel" Relationship="Self.FK_tblArac_tblModel" FromRole="tblArac" ToRole="tblModel" />
+    <NavigationProperty Name="tblKiralama" Relationship="Self.FK_tblKiralama_tblArac" FromRole="tblArac" ToRole="tblKiralama" />
+  </EntityType>
+  <EntityType Name="tblKiralama">
+    <Key>
+      <PropertyRef Name="kiralamaId" />
+    </Key>
+    <Property Name="kiralamaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="kiralamaDurum" Type="Boolean" />
+    <Property Name="aracId" Type="Int32" />
+    <Property Name="musteriId" Type="Int32" />
+    <Property Name="aciklama" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="gunSayisi" Type="Int32" />
+    <Property Name="ucret" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="tarih" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="tblArac" Relationship="Self.FK_tblKiralama_tblArac" FromRole="tblKiralama" ToRole="tblArac" />
+    <NavigationProperty Name="tblMusteri" Relationship="Self.FK_tblKiralama_tblMusteri" FromRole="tblKiralama" ToRole="tblMusteri" />
+  </EntityType>
+  <EntityType Name="tblMarka">
+    <Key>
+      <PropertyRef Name="markaId" />
+    </Key>
+    <Property Name="markaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="markaAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblModel" Relationship="Self.FK_tblModel_tblMarka" FromRole="tblMarka" ToRole="tblModel" />
+  </EntityType>
+  <EntityType Name="tblModel">
+    <Key>
+      <PropertyRef Name="modelId" />
+    </Key>
+    <Property Name="modelId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="modelAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="markaId" Type="Int32" />
+    <NavigationProperty Name="tblArac" Relationship="Self.FK_tblArac_tblModel" FromRole="tblModel" ToRole="tblArac" />
+    <NavigationProperty Name="tblMarka" Relationship="Self.FK_tblModel_tblMarka" FromRole="tblModel" ToRole="tblMarka" />
+  </EntityType>
+  <EntityType Name="tblMusteri">
+    <Key>
+      <PropertyRef Name="musteriId" />
+    </Key>
+    <Property Name="musteriId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="musteriAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="musteriSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="musteriMail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="musteriSifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="musteriYas" Type="Int32" />
+    <NavigationProperty Name="tblKiralama" Relationship="Self.FK_tblKiralama_tblMusteri" FromRole="tblMusteri" ToRole="tblKiralama" />
+  </EntityType>
+  <Association Name="FK_tblArac_tblModel">
+    <End Role="tblModel" Type="Self.tblModel" Multiplicity="0..1" />
+    <End Role="tblArac" Type="Self.tblArac" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblModel">
+        <PropertyRef Name="modelId" />
+      </Principal>
+      <Dependent Role="tblArac">
+        <PropertyRef Name="modelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblKiralama_tblArac">
+    <End Role="tblArac" Type="Self.tblArac" Multiplicity="0..1" />
+    <End Role="tblKiralama" Type="Self.tblKiralama" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblArac">
+        <PropertyRef Name="aracId" />
+      </Principal>
+      <Dependent Role="tblKiralama">
+        <PropertyRef Name="aracId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblKiralama_tblMusteri">
+    <End Role="tblMusteri" Type="Self.tblMusteri" Multiplicity="0..1" />
+    <End Role="tblKiralama" Type="Self.tblKiralama" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblMusteri">
+        <PropertyRef Name="musteriId" />
+      </Principal>
+      <Dependent Role="tblKiralama">
+        <PropertyRef Name="musteriId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblModel_tblMarka">
+    <End Role="tblMarka" Type="Self.tblMarka" Multiplicity="0..1" />
+    <End Role="tblModel" Type="Self.tblModel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblMarka">
+        <PropertyRef Name="markaId" />
+      </Principal>
+      <Dependent Role="tblModel">
+        <PropertyRef Name="markaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AracEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblArac" EntityType="Self.tblArac" />
+    <EntitySet Name="tblKiralama" EntityType="Self.tblKiralama" />
+    <EntitySet Name="tblMarka" EntityType="Self.tblMarka" />
+    <EntitySet Name="tblModel" EntityType="Self.tblModel" />
+    <EntitySet Name="tblMusteri" EntityType="Self.tblMusteri" />
+    <AssociationSet Name="FK_tblArac_tblModel" Association="Self.FK_tblArac_tblModel">
+      <End Role="tblModel" EntitySet="tblModel" />
+      <End Role="tblArac" EntitySet="tblArac" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblKiralama_tblArac" Association="Self.FK_tblKiralama_tblArac">
+      <End Role="tblArac" EntitySet="tblArac" />
+      <End Role="tblKiralama" EntitySet="tblKiralama" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblKiralama_tblMusteri" Association="Self.FK_tblKiralama_tblMusteri">
+      <End Role="tblMusteri" EntitySet="tblMusteri" />
+      <End Role="tblKiralama" EntitySet="tblKiralama" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblModel_tblMarka" Association="Self.FK_tblModel_tblMarka">
+      <End Role="tblMarka" EntitySet="tblMarka" />
+      <End Role="tblModel" EntitySet="tblModel" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

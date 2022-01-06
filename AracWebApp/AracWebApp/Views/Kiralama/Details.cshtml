@@ -1,0 +1,74 @@
+﻿@model AracWebApp.Models.tblKiralama
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblKiralama</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.kiralamaDurum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kiralamaDurum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aciklama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aciklama)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gunSayisi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gunSayisi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ucret)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ucret)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tarih)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tarih)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblArac.aciklama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblArac.aciklama)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblMusteri.musteriAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblMusteri.musteriAd)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.kiralamaId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbAracModelStoreContainer" CdmEntityContainer="AracEntities">
+    <EntitySetMapping Name="tblArac">
+      <EntityTypeMapping TypeName="dbAracModel.tblArac">
+        <MappingFragment StoreEntitySet="tblArac">
+          <ScalarProperty Name="aracId" ColumnName="aracId" />
+          <ScalarProperty Name="modelId" ColumnName="modelId" />
+          <ScalarProperty Name="airbag" ColumnName="airbag" />
+          <ScalarProperty Name="aciklama" ColumnName="aciklama" />
+          <ScalarProperty Name="gunlukFiyat" ColumnName="gunlukFiyat" />
+          <ScalarProperty Name="koltukSayisi" ColumnName="koltukSayisi" />
+          <ScalarProperty Name="bagajHacmi" ColumnName="bagajHacmi" />
+          <ScalarProperty Name="km" ColumnName="km" />
+          <ScalarProperty Name="resim" ColumnName="resim" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblKiralama">
+      <EntityTypeMapping TypeName="dbAracModel.tblKiralama">
+        <MappingFragment StoreEntitySet="tblKiralama">
+          <ScalarProperty Name="kiralamaId" ColumnName="kiralamaId" />
+          <ScalarProperty Name="kiralamaDurum" ColumnName="kiralamaDurum" />
+          <ScalarProperty Name="aracId" ColumnName="aracId" />
+          <ScalarProperty Name="musteriId" ColumnName="musteriId" />
+          <ScalarProperty Name="aciklama" ColumnName="aciklama" />
+          <ScalarProperty Name="gunSayisi" ColumnName="gunSayisi" />
+          <ScalarProperty Name="ucret" ColumnName="ucret" />
+          <ScalarProperty Name="tarih" ColumnName="tarih" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblMarka">
+      <EntityTypeMapping TypeName="dbAracModel.tblMarka">
+        <MappingFragment StoreEntitySet="tblMarka">
+          <ScalarProperty Name="markaId" ColumnName="markaId" />
+          <ScalarProperty Name="markaAd" ColumnName="markaAd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblModel">
+      <EntityTypeMapping TypeName="dbAracModel.tblModel">
+        <MappingFragment StoreEntitySet="tblModel">
+          <ScalarProperty Name="modelId" ColumnName="modelId" />
+          <ScalarProperty Name="modelAd" ColumnName="modelAd" />
+          <ScalarProperty Name="markaId" ColumnName="markaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblMusteri">
+      <EntityTypeMapping TypeName="dbAracModel.tblMusteri">
+        <MappingFragment StoreEntitySet="tblMusteri">
+          <ScalarProperty Name="musteriId" ColumnName="musteriId" />
+          <ScalarProperty Name="musteriAd" ColumnName="musteriAd" />
+          <ScalarProperty Name="musteriSoyad" ColumnName="musteriSoyad" />
+          <ScalarProperty Name="musteriMail" ColumnName="musteriMail" />
+          <ScalarProperty Name="musteriSifre" ColumnName="musteriSifre" />
+          <ScalarProperty Name="musteriYas" ColumnName="musteriYas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

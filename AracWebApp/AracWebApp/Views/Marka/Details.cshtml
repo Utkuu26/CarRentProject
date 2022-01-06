@@ -1,0 +1,26 @@
+﻿@model AracWebApp.Models.tblMarka
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblMarka</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.markaAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.markaAd)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.markaId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

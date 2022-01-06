@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>@ViewBag.Title - ASP.NET Uygulamam</title>
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="row">
+        <div class="container">
+            <br>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+                <a class="navbar-brand ml-auto" href="~/Home/Index">Araç Kirala Hemen Kirala</a>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        @Html.Partial("_LoginPartial")
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+
+    <div class="container body-content">
+
+        @RenderBody()
+
+        <hr />
+
+    </div>
+
+    <div class="row">
+        <footer>
+            <div class="container">
+                <div class="bg-danger">
+                    <div class="row mt-5 text-center">
+                        <h5 class="text-uppercase justify-content-center m-3 mr-3">Bize Ulasin</h5>
+                        <div class="col-md-4 col-sm-12 mb-3">
+                            <li class="list-unstyled">
+                                <a href="https://www.instagram.com/utku.26/"> Utku Gezensoy <i class="fa fa-instagram" aria-hidden="true"></i></a>
+                            </li>
+                        </div>
+                        <div class="col-md-4 col-sm-12">
+                            <li class="list-unstyled">
+                                <a href="https://www.instagram.com/berfinozd/"> Berfin Özdemir <i class="fa fa-instagram" aria-hidden="true"></i></a>
+                            </li>
+                        </div>
+                        <div class="col-md-4 col-sm-12">
+                            <li class="list-unstyled">
+                                <a href="https://www.instagram.com/ozgeebasknn/"> Özge Baskın <i class="fa fa-instagram" aria-hidden="true"></i></a>
+                            </li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>
